@@ -26,7 +26,7 @@ class AddTodo extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final TextEditingController _controller = TextEditingController();
+    final TextEditingController todoName = TextEditingController();
 
     return Column(
       spacing: 12,
@@ -34,7 +34,7 @@ class AddTodo extends ConsumerWidget {
         Padding(
           padding: EdgeInsets.only(left: 24, right: 24),
           child: TextField(
-            controller: _controller,
+            controller: todoName,
             decoration: const InputDecoration(
               labelText: 'Nom de la tâche',
               contentPadding: EdgeInsets.all(8),
@@ -43,7 +43,7 @@ class AddTodo extends ConsumerWidget {
         ),
         ElevatedButton(
           onPressed: () {
-            ref.read(todoListProvider.notifier).addTask(_controller.text);
+            ref.read(todoListProvider.notifier).addTask(todoName.text);
             Navigator.of(context).pop();
           },
           child: const Text('Ajouter'),

@@ -14,7 +14,11 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Ma ToDo List'),
+        title: Padding(
+          padding: const EdgeInsets.only(top: 24),
+          child: Text('Ma ToDo List'),
+        ),
+        centerTitle: true,
       ),
       body: const TodoList(),
       floatingActionButton: FloatingActionButton(
@@ -41,13 +45,24 @@ class TodoList extends ConsumerWidget {
         : ListView.builder(
             itemCount: todos.length,
             itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(todos[index].name),
-                trailing: IconButton(
-                  icon: Icon(Icons.delete),
-                  onPressed: () {
-                    ref.read(todoListProvider.notifier).removeTask(index);
-                  },
+              return Padding(
+                padding: const EdgeInsets.only(left: 12, right: 12, top: 12),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.blueGrey,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: ListTile(
+                    title: Text(todos[index].name),
+                    trailing: IconButton(
+                      icon: Icon(Icons.delete),
+                      onPressed: () {
+                        ref.read(todoListProvider.notifier).removeTask(index);
+                      },
+                    ),
+                    textColor: Colors.white,
+                    iconColor: Colors.white,
+                  ),
                 ),
               );
             },
