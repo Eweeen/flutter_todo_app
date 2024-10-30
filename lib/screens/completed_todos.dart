@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_todo/providers/todo_provider.dart';
 
-class MainScreen extends ConsumerWidget {
-  const MainScreen({super.key});
+class CompletedTodos extends ConsumerWidget {
+  const CompletedTodos({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final todos = ref.watch(todoListProvider);
-    final toBeCompletedTodos = todos.where((todo) => !todo.completed).toList();
+    final completedTodos = todos.where((todo) => todo.completed).toList();
 
     return ListView.builder(
-      itemCount: toBeCompletedTodos.length,
+      itemCount: completedTodos.length,
       itemBuilder: (context, index) {
-        final todo = toBeCompletedTodos[index];
+        final todo = completedTodos[index];
         return ListTile(
           title: Text(todo.todo),
           trailing: IconButton(

@@ -427,3 +427,260 @@ abstract class _Todo implements Todo {
   _$$TodoImplCopyWith<_$TodoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+DeletedTodo _$DeletedTodoFromJson(Map<String, dynamic> json) {
+  return _DeletedTodo.fromJson(json);
+}
+
+/// @nodoc
+mixin _$DeletedTodo {
+  int get id => throw _privateConstructorUsedError;
+  String get todo => throw _privateConstructorUsedError;
+  bool get completed => throw _privateConstructorUsedError;
+  int get userId => throw _privateConstructorUsedError;
+  bool get isDeleted => throw _privateConstructorUsedError;
+  DateTime get deletedOn => throw _privateConstructorUsedError;
+
+  /// Serializes this DeletedTodo to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of DeletedTodo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $DeletedTodoCopyWith<DeletedTodo> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $DeletedTodoCopyWith<$Res> {
+  factory $DeletedTodoCopyWith(
+          DeletedTodo value, $Res Function(DeletedTodo) then) =
+      _$DeletedTodoCopyWithImpl<$Res, DeletedTodo>;
+  @useResult
+  $Res call(
+      {int id,
+      String todo,
+      bool completed,
+      int userId,
+      bool isDeleted,
+      DateTime deletedOn});
+}
+
+/// @nodoc
+class _$DeletedTodoCopyWithImpl<$Res, $Val extends DeletedTodo>
+    implements $DeletedTodoCopyWith<$Res> {
+  _$DeletedTodoCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of DeletedTodo
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? todo = null,
+    Object? completed = null,
+    Object? userId = null,
+    Object? isDeleted = null,
+    Object? deletedOn = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      todo: null == todo
+          ? _value.todo
+          : todo // ignore: cast_nullable_to_non_nullable
+              as String,
+      completed: null == completed
+          ? _value.completed
+          : completed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int,
+      isDeleted: null == isDeleted
+          ? _value.isDeleted
+          : isDeleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      deletedOn: null == deletedOn
+          ? _value.deletedOn
+          : deletedOn // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$DeletedTodoImplCopyWith<$Res>
+    implements $DeletedTodoCopyWith<$Res> {
+  factory _$$DeletedTodoImplCopyWith(
+          _$DeletedTodoImpl value, $Res Function(_$DeletedTodoImpl) then) =
+      __$$DeletedTodoImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {int id,
+      String todo,
+      bool completed,
+      int userId,
+      bool isDeleted,
+      DateTime deletedOn});
+}
+
+/// @nodoc
+class __$$DeletedTodoImplCopyWithImpl<$Res>
+    extends _$DeletedTodoCopyWithImpl<$Res, _$DeletedTodoImpl>
+    implements _$$DeletedTodoImplCopyWith<$Res> {
+  __$$DeletedTodoImplCopyWithImpl(
+      _$DeletedTodoImpl _value, $Res Function(_$DeletedTodoImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of DeletedTodo
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? todo = null,
+    Object? completed = null,
+    Object? userId = null,
+    Object? isDeleted = null,
+    Object? deletedOn = null,
+  }) {
+    return _then(_$DeletedTodoImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      todo: null == todo
+          ? _value.todo
+          : todo // ignore: cast_nullable_to_non_nullable
+              as String,
+      completed: null == completed
+          ? _value.completed
+          : completed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int,
+      isDeleted: null == isDeleted
+          ? _value.isDeleted
+          : isDeleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      deletedOn: null == deletedOn
+          ? _value.deletedOn
+          : deletedOn // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$DeletedTodoImpl implements _DeletedTodo {
+  _$DeletedTodoImpl(
+      {required this.id,
+      required this.todo,
+      required this.completed,
+      required this.userId,
+      required this.isDeleted,
+      required this.deletedOn});
+
+  factory _$DeletedTodoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DeletedTodoImplFromJson(json);
+
+  @override
+  final int id;
+  @override
+  final String todo;
+  @override
+  final bool completed;
+  @override
+  final int userId;
+  @override
+  final bool isDeleted;
+  @override
+  final DateTime deletedOn;
+
+  @override
+  String toString() {
+    return 'DeletedTodo(id: $id, todo: $todo, completed: $completed, userId: $userId, isDeleted: $isDeleted, deletedOn: $deletedOn)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeletedTodoImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.todo, todo) || other.todo == todo) &&
+            (identical(other.completed, completed) ||
+                other.completed == completed) &&
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.isDeleted, isDeleted) ||
+                other.isDeleted == isDeleted) &&
+            (identical(other.deletedOn, deletedOn) ||
+                other.deletedOn == deletedOn));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, id, todo, completed, userId, isDeleted, deletedOn);
+
+  /// Create a copy of DeletedTodo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeletedTodoImplCopyWith<_$DeletedTodoImpl> get copyWith =>
+      __$$DeletedTodoImplCopyWithImpl<_$DeletedTodoImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$DeletedTodoImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _DeletedTodo implements DeletedTodo {
+  factory _DeletedTodo(
+      {required final int id,
+      required final String todo,
+      required final bool completed,
+      required final int userId,
+      required final bool isDeleted,
+      required final DateTime deletedOn}) = _$DeletedTodoImpl;
+
+  factory _DeletedTodo.fromJson(Map<String, dynamic> json) =
+      _$DeletedTodoImpl.fromJson;
+
+  @override
+  int get id;
+  @override
+  String get todo;
+  @override
+  bool get completed;
+  @override
+  int get userId;
+  @override
+  bool get isDeleted;
+  @override
+  DateTime get deletedOn;
+
+  /// Create a copy of DeletedTodo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DeletedTodoImplCopyWith<_$DeletedTodoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

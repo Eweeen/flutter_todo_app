@@ -38,3 +38,23 @@ Map<String, dynamic> _$$TodoImplToJson(_$TodoImpl instance) =>
       'completed': instance.completed,
       'userId': instance.userId,
     };
+
+_$DeletedTodoImpl _$$DeletedTodoImplFromJson(Map<String, dynamic> json) =>
+    _$DeletedTodoImpl(
+      id: (json['id'] as num).toInt(),
+      todo: json['todo'] as String,
+      completed: json['completed'] as bool,
+      userId: (json['userId'] as num).toInt(),
+      isDeleted: json['isDeleted'] as bool,
+      deletedOn: DateTime.parse(json['deletedOn'] as String),
+    );
+
+Map<String, dynamic> _$$DeletedTodoImplToJson(_$DeletedTodoImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'todo': instance.todo,
+      'completed': instance.completed,
+      'userId': instance.userId,
+      'isDeleted': instance.isDeleted,
+      'deletedOn': instance.deletedOn.toIso8601String(),
+    };

@@ -27,3 +27,18 @@ class Todo with _$Todo {
 
   factory Todo.fromJson(Map<String, dynamic> json) => _$TodoFromJson(json);
 }
+
+@freezed
+class DeletedTodo with _$DeletedTodo {
+  factory DeletedTodo({
+    required int id,
+    required String todo,
+    required bool completed,
+    required int userId,
+    required bool isDeleted,
+    required DateTime deletedOn,
+  }) = _DeletedTodo;
+
+  factory DeletedTodo.fromJson(Map<String, dynamic> json) =>
+      _$DeletedTodoFromJson(json);
+}
