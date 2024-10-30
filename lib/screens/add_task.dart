@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_todo/providers/todo_provider.dart';
 
 class AddTask extends StatefulWidget {
   const AddTask({super.key});
@@ -43,7 +42,6 @@ class AddTodo extends ConsumerWidget {
         ),
         ElevatedButton(
           onPressed: () {
-            ref.read(todoListProvider.notifier).addTask(todoName.text);
             Navigator.of(context).pop();
           },
           child: const Text('Ajouter'),

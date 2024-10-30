@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_todo/providers/todo_provider.dart';
+import 'package:flutter_todo/models/todo_model.dart';
+import 'package:flutter_todo/services/api_service.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -36,36 +37,37 @@ class TodoList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final todos = ref.watch(todoListProvider);
+    final apiService = ApiService();
 
-    return todos.isEmpty
-        ? Center(
-            child: Text("Aucun élément"),
-          )
-        : ListView.builder(
-            itemCount: todos.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.only(left: 12, right: 12, top: 12),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.blueGrey,
-                    borderRadius: BorderRadius.circular(8),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 68),
+      child: FutureBuilder<TodoResponse>(
+          future: apiService.fetchTodos(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(child: CircularProgressIndicator());
+            }
+
+            if (snapshot.hasError) {
+              return Text('Erreur : ${snapshot.error}');
+            }
+
+            final todos = snapshot.data!.todos;
+            return ListView.builder(
+              itemCount: todos.length,
+              itemBuilder: (context, index) {
+                final todo = todos[index];
+                return ListTile(
+                  title: Text(todo.todo),
+                  trailing: Icon(
+                    todo.completed
+                        ? Icons.check_box
+                        : Icons.check_box_outline_blank,
                   ),
-                  child: ListTile(
-                    title: Text(todos[index].name),
-                    trailing: IconButton(
-                      icon: Icon(Icons.delete),
-                      onPressed: () {
-                        ref.read(todoListProvider.notifier).removeTask(index);
-                      },
-                    ),
-                    textColor: Colors.white,
-                    iconColor: Colors.white,
-                  ),
-                ),
-              );
-            },
-          );
+                );
+              },
+            );
+          }),
+    );
   }
 }
