@@ -15,7 +15,6 @@ class _NavigationState extends State<Navigation> {
 
   static const List<Widget> _widgetOptions = <Widget>[
     MainScreen(),
-    AddTodo(),
     CompletedTodos(),
   ];
 
@@ -52,10 +51,6 @@ class _NavigationState extends State<Navigation> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add),
-            label: 'Ajouter une tâche',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.checklist),
